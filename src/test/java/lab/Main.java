@@ -8,6 +8,7 @@ import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -32,6 +33,7 @@ WebDriverWait wait;
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 		driver.get("https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2380057.m570.l1313.TR12.TRC2.A0.H0.Xbook.TRS0&_nkw=book&_sacat=0");
+		
 	}
 	
 
@@ -54,7 +56,7 @@ WebDriverWait wait;
 	}
 	
 	@Test(priority=10)
-	public void checkBoxWithJavascriptExecutor() throws InterruptedException {
+	public void checkBoxWithJavascriptExecutor()  {
 		
 		JavascriptExecutor js =(JavascriptExecutor)driver;
 		WebElement result = (WebElement)js.executeScript("return document.querySelector('input[aria-label=\"Used\"]')");
