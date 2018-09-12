@@ -1,6 +1,9 @@
 package lab;
 
 
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeMethod;
+import org.testng.AssertJUnit;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
@@ -21,6 +24,7 @@ public class Main {
 
 WebDriver driver;
 WebDriverWait wait;
+	
 	
 	@BeforeTest
 	public void setUp() {
@@ -46,7 +50,7 @@ WebDriverWait wait;
 			link.click();
 		}
 		radio = driver.findElement(By.cssSelector("[name='LH_GD']:nth-child(4) input"));
-		assertTrue(radio.isSelected());
+		AssertJUnit.assertTrue(radio.isSelected());
 	}
 	
 	@Test(priority=10)
@@ -59,7 +63,7 @@ WebDriverWait wait;
 			result.click();
 			}
 		result = (WebElement)js.executeScript("return document.querySelector('input[aria-label=\"Used\"]')");
-		assertTrue(result.getAttribute("checked").equals("true"));
+		AssertJUnit.assertTrue(result.getAttribute("checked").equals("true"));
 	}
 	
 	@Test()
@@ -67,7 +71,7 @@ WebDriverWait wait;
 		
 	}
 	
-	@AfterTest(enabled=false)
+	@AfterTest(enabled=true)
 	public void shutDown() {
 		driver.quit();
 	}

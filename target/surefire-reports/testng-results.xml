@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="11477" started-at="2018-09-12T17:46:26Z" finished-at="2018-09-12T17:46:38Z">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="11477" started-at="2018-09-12T17:46:26Z" finished-at="2018-09-12T17:46:38Z">
+      <class name="lab.Main">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:lab.Main@35fb3008]" name="setUp" is-config="true" duration-ms="6724" started-at="2018-09-12T13:46:26Z" finished-at="2018-09-12T13:46:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="getTextFromElement()[pri:0, instance:lab.Main@35fb3008]" name="getTextFromElement" duration-ms="1" started-at="2018-09-12T13:46:33Z" finished-at="2018-09-12T13:46:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getTextFromElement -->
+        <test-method status="PASS" signature="checkBoxWithJavascriptExecutor()[pri:10, instance:lab.Main@35fb3008]" name="checkBoxWithJavascriptExecutor" duration-ms="3125" started-at="2018-09-12T13:46:33Z" finished-at="2018-09-12T13:46:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkBoxWithJavascriptExecutor -->
+        <test-method status="PASS" signature="radioButton()[pri:20, instance:lab.Main@35fb3008]" name="radioButton" duration-ms="1515" started-at="2018-09-12T13:46:36Z" finished-at="2018-09-12T13:46:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- radioButton -->
+        <test-method status="PASS" signature="shutDown()[pri:0, instance:lab.Main@35fb3008]" name="shutDown" is-config="true" duration-ms="97" started-at="2018-09-12T13:46:38Z" finished-at="2018-09-12T13:46:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shutDown -->
+      </class> <!-- lab.Main -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
