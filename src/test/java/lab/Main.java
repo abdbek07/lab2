@@ -3,7 +3,7 @@ package lab;
 
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeMethod;
-import org.testng.AssertJUnit;
+
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
@@ -52,7 +52,7 @@ WebDriverWait wait;
 			link.click();
 		}
 		radio = driver.findElement(By.cssSelector("[name='LH_GD']:nth-child(4) input"));
-		AssertJUnit.assertTrue(radio.isSelected());
+		assertTrue(radio.isSelected());
 	}
 	
 	@Test(priority=10)
@@ -65,7 +65,7 @@ WebDriverWait wait;
 			result.click();
 			}
 		result = (WebElement)js.executeScript("return document.querySelector('input[aria-label=\"Used\"]')");
-		AssertJUnit.assertTrue(result.getAttribute("checked").equals("true"));
+		assertTrue(result.getAttribute("checked").equals("true"));
 	}
 	
 	@Test()
