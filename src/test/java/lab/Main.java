@@ -68,9 +68,9 @@ WebDriverWait wait;
 //		assertTrue(result.getAttribute("checked").equals("true"));
 	}
 	
-	@Test()
+	@Test(priority=30)
 	public void getTextFromElement() {
-		
+		driver.findElement(By.cssSelector("_nkw")).sendKeys("ola");
 	}
 	
 	@AfterTest(enabled=true)
