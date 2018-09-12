@@ -17,8 +17,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
-
-import cucumber.api.java.Before;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Main {
@@ -33,7 +31,7 @@ WebDriverWait wait;
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 		driver.get("https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2380057.m570.l1313.TR12.TRC2.A0.H0.Xbook.TRS0&_nkw=book&_sacat=0");
-		
+		System.out.println("befortest");
 	}
 	
 
@@ -48,9 +46,11 @@ WebDriverWait wait;
 		
 		WebElement link = (WebElement)js.executeScript("return document.querySelector(\"[name='LH_GD']:nth-child(4) a\")");
 		WebElement radio = driver.findElement(By.cssSelector("[name='LH_GD']:nth-child(4) input"));
+		System.out.println(link.getAttribute("href"));
 		if(!(radio.isSelected())) {
 			link.click();
 		}
+		System.out.println("testrad");
 //		radio = driver.findElement(By.cssSelector("[name='LH_GD']:nth-child(4) input"));
 //		assertTrue(radio.isSelected());
 	}
@@ -64,13 +64,14 @@ WebDriverWait wait;
 		if(!(result.isSelected())) {
 			result.click();
 			}
+		System.out.println("test check");
 //		result = (WebElement)js.executeScript("return document.querySelector('input[aria-label=\"Used\"]')");
 //		assertTrue(result.getAttribute("checked").equals("true"));
 	}
 	
-	@Test(priority=30)
+	@Test()
 	public void getTextFromElement() {
-		driver.findElement(By.cssSelector("_nkw")).sendKeys("ola");
+		
 	}
 	
 	@AfterTest(enabled=true)
