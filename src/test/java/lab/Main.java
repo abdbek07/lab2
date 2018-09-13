@@ -10,27 +10,49 @@ import org.testng.annotations.BeforeMethod;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
 
 public class Main {
 
 WebDriver driver;
 WebDriverWait wait;
-	
+static String username = "abdbek07%40gmail.com"; // Your username
+static String authkey = "u4869ffde41da35e";  // Your authkey
+String testScore = "unset";
 	
 	@BeforeTest
-	public void setUp() {
-		
+	public void setUp() throws MalformedURLException {
+		DesiredCapabilities caps = new DesiredCapabilities();
+        
+        caps.setCapability("name", "Basic Test Example");
+        caps.setCapability("build", "1.0");
+        caps.setCapability("browserName", "Chrome");
+        caps.setCapability("version", "69");
+        caps.setCapability("platform", "Windows 10");
+        caps.setCapability("screenResolution", "2560x1920");
+        caps.setCapability("record_video", "true");
+
+        
+        RemoteWebDriver driver = new RemoteWebDriver(new URL("http://" + username + ":" + authkey +"@hub.crossbrowsertesting.com:80/wd/hub"), caps);
+        System.out.println(driver.getSessionId());
+
 		System.setProperty("webdriver.chrome.driver","./src/test/resources/drivers/chromedriver");
 		driver = new ChromeDriver();
 		Dimension d = new Dimension(1382,744); 

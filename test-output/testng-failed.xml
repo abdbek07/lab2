@@ -5,6 +5,7 @@
     <classes>
       <class name="lab.Main">
         <methods>
+          <include name="checkBoxWithJavascriptExecutor"/>
           <include name="shutDown"/>
           <include name="radioButton"/>
           <include name="setUp"/>
