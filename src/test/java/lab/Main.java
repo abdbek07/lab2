@@ -31,33 +31,33 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class Main {
 
-WebDriver driver;
+RemoteWebDriver driver;
 WebDriverWait wait;
 static String username = "abdbek07%40gmail.com"; // Your username
 static String authkey = "u4869ffde41da35e";  // Your authkey
 String testScore = "unset";
 	
-	@BeforeTest
-	public void setUp() throws MalformedURLException {
-		DesiredCapabilities caps = new DesiredCapabilities();
-        
-        caps.setCapability("name", "Basic Test Example");
-        caps.setCapability("build", "1.0");
-        caps.setCapability("browserName", "Chrome");
-        caps.setCapability("version", "69");
+
+	@BeforeSuite
+		public void setup() throws MalformedURLException {
+	    
+	    DesiredCapabilities caps = new DesiredCapabilities();
+	    caps.setCapability("browserName", "Chrome");
         caps.setCapability("platform", "Windows 10");
         caps.setCapability("screenResolution", "2560x1920");
         caps.setCapability("record_video", "true");
-
-        
-        RemoteWebDriver driver = new RemoteWebDriver(new URL("http://" + username + ":" + authkey +"@hub.crossbrowsertesting.com:80/wd/hub"), caps);
-        System.out.println(driver.getSessionId());
+	    driver = new RemoteWebDriver(new URL("http://" + username + ":" + authkey +"@hub.crossbrowsertesting.com:80/wd/hub"), caps);
+	    System.out.println("beforesuite");
+}
+	@BeforeTest(enabled=false)
+	public void setUp() throws MalformedURLException {
 
 		System.setProperty("webdriver.chrome.driver","./src/test/resources/drivers/chromedriver");
 		driver = new ChromeDriver();
+		
 		Dimension d = new Dimension(1382,744); 
-		//Resize the current window to the given dimension
 		driver.manage().window().setSize(d); 
+		
 		driver.get("https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2380057.m570.l1313.TR12.TRC2.A0.H0.Xbook.TRS0&_nkw=book&_sacat=0");
 		System.out.println("befortest");
 	}

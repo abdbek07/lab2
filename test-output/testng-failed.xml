@@ -8,6 +8,7 @@
           <include name="checkBoxWithJavascriptExecutor"/>
           <include name="shutDown"/>
           <include name="radioButton"/>
+          <include name="setup"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- lab.Main -->
