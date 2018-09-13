@@ -47,8 +47,8 @@ WebDriverWait wait;
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability("browserName", "Chrome");    // Automatically pulls the latest version of Chrome
         caps.setCapability("platform", "Windows 10");   // To specify a version, add setCapability("version", "desired version")
-        caps.setCapability("screenResolution", "2560x1920");
-        caps.setCapability("record_video", "true");
+//        caps.setCapability("screenResolution", "2560x1920");
+//        caps.setCapability("record_video", "true");
         
         driver = new RemoteWebDriver(new URL("http://" + username + ":" + authkey +"@hub.crossbrowsertesting.com:80/wd/hub"), caps);
 }
