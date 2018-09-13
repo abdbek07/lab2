@@ -10,6 +10,8 @@ import org.testng.annotations.BeforeMethod;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
@@ -68,7 +70,7 @@ WebDriverWait wait;
 	
 	
 	@Test(priority=20)
-	public void radioButton() throws InterruptedException{
+	public void radioButton() throws InterruptedException, IOException{
 		wait = new WebDriverWait(driver, 10);
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("[aria-label=\"New\"]")));
 		JavascriptExecutor js =(JavascriptExecutor)driver;
@@ -79,13 +81,16 @@ WebDriverWait wait;
 		if(!(radio.isSelected())) {
 			link.click();
 		}
+		File scr=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        File dest= new File("/Users/nnuerdun/Desktop/books/"+System.currentTimeMillis()+".png");
+        com.google.common.io.Files.copy(scr, dest);
 		System.out.println("testrad");
 //		radio = driver.findElement(By.cssSelector("[name='LH_GD']:nth-child(4) input"));
 //		assertTrue(radio.isSelected());
 	}
 	
 	@Test(priority=10)
-	public void checkBoxWithJavascriptExecutor()  {
+	public void checkBoxWithJavascriptExecutor() throws IOException  {
 		wait = new WebDriverWait(driver, 10);
 		JavascriptExecutor js =(JavascriptExecutor)driver;
 		WebElement result = (WebElement)js.executeScript("return document.querySelector('input[aria-label=\"Used\"]')");
@@ -93,6 +98,9 @@ WebDriverWait wait;
 		if(!(result.isSelected())) {
 			result.click();
 			}
+		File scr=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        File dest= new File("/Users/nnuerdun/Desktop/books/"+System.currentTimeMillis()+".png");
+        com.google.common.io.Files.copy(scr, dest);
 		System.out.println("test check");
 //		result = (WebElement)js.executeScript("return document.querySelector('input[aria-label=\"Used\"]')");
 //		assertTrue(result.getAttribute("checked").equals("true"));
