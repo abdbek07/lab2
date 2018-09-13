@@ -33,6 +33,9 @@ WebDriverWait wait;
 		
 		System.setProperty("webdriver.chrome.driver","./src/test/resources/drivers/chromedriver");
 		driver = new ChromeDriver();
+		Dimension d = new Dimension(1382,744); 
+		//Resize the current window to the given dimension
+		driver.manage().window().setSize(d); 
 		driver.get("https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2380057.m570.l1313.TR12.TRC2.A0.H0.Xbook.TRS0&_nkw=book&_sacat=0");
 		System.out.println("befortest");
 	}
