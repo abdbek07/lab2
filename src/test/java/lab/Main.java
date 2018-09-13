@@ -33,21 +33,22 @@ public class Main {
 
 RemoteWebDriver driver;
 WebDriverWait wait;
-static String username = "abdbek07%40gmail.com"; // Your username
-static String authkey = "u4869ffde41da35e";  // Your authkey
-String testScore = "unset";
 	
 
 	@BeforeSuite
 		public void setup() throws MalformedURLException {
 	    
-	    DesiredCapabilities caps = new DesiredCapabilities();
-	    caps.setCapability("browserName", "Chrome");
-        caps.setCapability("platform", "Windows 10");
+	    System.out.println("beforesuite");
+	    
+	    String username = "abdbek07%40gmail.com"; // Your username
+		String authkey = "u4869ffde41da35e";  // Your authkey
+        DesiredCapabilities caps = new DesiredCapabilities();
+        caps.setCapability("browserName", "Chrome");    // Automatically pulls the latest version of Chrome
+        caps.setCapability("platform", "Windows 10");   // To specify a version, add setCapability("version", "desired version")
         caps.setCapability("screenResolution", "2560x1920");
         caps.setCapability("record_video", "true");
-	    driver = new RemoteWebDriver(new URL("http://" + username + ":" + authkey +"@hub.crossbrowsertesting.com:80/wd/hub"), caps);
-	    System.out.println("beforesuite");
+        
+        driver = new RemoteWebDriver(new URL("http://" + username + ":" + authkey +"@hub.crossbrowsertesting.com:80/wd/hub"), caps);
 }
 	@BeforeTest(enabled=false)
 	public void setUp() throws MalformedURLException {
